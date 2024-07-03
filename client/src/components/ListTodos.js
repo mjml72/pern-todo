@@ -7,14 +7,14 @@ export default function ListTodos() {
 
     const deleteTodo = async (id)=>{
         try {
-            const deletetodo = await fetch(`http://localhost:4000/todos/${id}`,
+            await fetch(`http://localhost:4000/todos/${id}`,
                 {
                     method: "DELETE"
     
                 }
             );
 
-            console.log(deletetodo);
+           
             getData();
         } catch (error) {
             console.log(error.message);
