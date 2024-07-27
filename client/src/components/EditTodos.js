@@ -8,7 +8,7 @@ export default function EditTodos({ todo }) {
         e.preventDefault();
         try {
             const body = { description };
-            const response = await fetch(`http://localhost:4000/todos/${todo.todo_id}`,
+            const response = await fetch(`http://localhost:4000/todos/${todo.todoid}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -26,11 +26,11 @@ export default function EditTodos({ todo }) {
         <div>
             <button type="button" className="btn btn-warning"
                 data-bs-toggle="modal"
-                data-bs-target={`#id${todo.todo_id}`}>
+                data-bs-target={`#id${todo.todoid}`}>
                 Edit
             </button>
 
-            <div className="modal fade" id={`id${todo.todo_id}`}>
+            <div className="modal fade" id={`id${todo.todoid}`}>
                 <div className="modal-dialog">
                     <div className="modal-content">
 

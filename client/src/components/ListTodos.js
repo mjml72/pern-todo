@@ -49,12 +49,12 @@ export default function ListTodos() {
                 <tbody>
                     {
                         todos.map((todo) =>
-                            <tr key={todo.todo_id}>
+                            <tr key={todo.todoid}>
                                 <td>{todo.description}</td>
                                 <td><EditTodos todo={todo}/></td>
                                 <td>
                                     <button className='btn btn-danger'
-                                        onClick={() => deleteTodo(todo.todo_id)}
+                                        onClick={() => deleteTodo(todo.todoid)}
                                     >
                                         Delete</button>
                                 </td>
