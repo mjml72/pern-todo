@@ -27,7 +27,7 @@ export class TodoController {
             const { description } = req.body;
             const newTodo = await TodoModel.create(description);
             if (newTodo) { return res.status(201).json(newTodo); }
-            res.status(500).json({ messagge: "Todo not created" });
+            res.status(400).json({ messagge: "Todo not created" });
         } catch (error) {
             res.status(500).send(error.message);
         }
