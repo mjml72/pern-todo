@@ -7,7 +7,7 @@ export class TodoModel {
     }
 
     static async getById(id) {
-        const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [id]);
+        const todo = await pool.query("SELECT * FROM todo WHERE todoid = $1", [id]);
         return todo.rows[0];
     }
 
@@ -22,7 +22,7 @@ export class TodoModel {
         if(!todo){
             return false;
         }
-        await pool.query("DELETE FROM todo WHERE todo_id = $1", [id]);
+        await pool.query("DELETE FROM todo WHERE todoid = $1", [id]);
         return true;
     }
 
@@ -31,7 +31,7 @@ export class TodoModel {
         if (!todo) {
             return false;
         }
-        await pool.query("UPDATE todo SET description = $1 WHERE todo_id = $2",
+        await pool.query("UPDATE todo SET description = $1 WHERE todoid = $2",
             [description, id]
         );
         return todo;
